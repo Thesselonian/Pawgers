@@ -11,4 +11,10 @@ async function logout() {
   }
 }
 
+function toDashboard () {
+document.location.replace('/dashboard')
+}
+
+
+document.querySelector('#dashboard-return').addEventListener('click', toDashboard);
 document.querySelector('#logout').addEventListener('click', logout);
