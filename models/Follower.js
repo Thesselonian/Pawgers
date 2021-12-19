@@ -33,7 +33,7 @@ Follower.init(
       timestamps: false,
       freezeTableName: true,
       underscored: true,
-      modelName: 'followers'
+      modelName: 'follower'
     }
   );
   

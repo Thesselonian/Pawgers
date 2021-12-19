@@ -3,8 +3,18 @@ const Post = require('./Post');
 const User = require('./User');
 const Vote = require('./Vote');
 const Comment = require('./Comment');
+const Follower = require('./Follower');
 
 // create associations
+User.hasMany(Follower, {
+  foreignKey: 'user_id'
+});
+
+Follower.belongsTo(User, {
+  foreignKey: 'user_id'
+});
+
+
 User.hasMany(Post, {
   foreignKey: 'user_id'
 });
