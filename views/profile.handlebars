@@ -1,0 +1,12 @@
+<section id="profile-body">
+
+    <h1 id="profile-name">{{username}}</h1>
+    <h2 id="profile-email">{{email}}</h2>
+
+    {{#each followers as |follower| }}
+    <ul id="follower-list">
+        <li class="follwer-item">{{follower}}</li>
+    </ul>
+    {{/each}}
+
+</section>
