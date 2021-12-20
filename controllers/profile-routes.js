@@ -3,6 +3,7 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 const Follower = require('../models/Follower');
+const { process_params } = require('express/lib/router');
 
 router.get('/', withAuth, (req, res) => {
     User.findOne({
@@ -25,10 +26,9 @@ router.get('/', withAuth, (req, res) => {
     //serialize
     const profileDataObj = dbProfileData.get({ plain: true });
 
-    console.log(profile)
-
+    console.log(profileDataObj)
     //render profile page
-    res.render('profile', dbProfileData );
+    res.render('profile', profileDataObj );
     })
     .catch(err => {
       console.log(err);

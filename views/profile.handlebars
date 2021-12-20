@@ -1,12 +1,33 @@
 <section id="profile-body">
 
     <h1 id="profile-name">{{username}}</h1>
-    <h2 id="profile-email">{{email}}</h2>
+    <h3 id="profile-email">{{email}}</h3>
 
-    {{#each followers as |follower| }}
-    <ul id="follower-list">
-        <li class="follwer-item">{{follower}}</li>
-    </ul>
-    {{/each}}
+    <div class="followers-container">
+
+        <h3 id="follower-heading">These people follow {{username}}! </h3>
+        <ul id="follower-list">
+            {{#each followers}}
+            <li class="follower-name-container">
+                <a href="/users/{{this.follower_name}}" target="blank" class="follower-name">{{this.follower_name}}</a>
+            </li>
+            {{/each}}
+        </ul>
+
+    </div>
+
+    <div class="posts-container">
+
+        <h3 id="post-heading">{{username}}'s Posts:</h3>
+        <ul id="post-list">
+            {{#each posts as |post|}}
+            <li>
+                {{> post-info post}}
+                <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+            </li>
+            {{/each}}
+        </ul>
+
+    </div>
 
 </section>
