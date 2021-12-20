@@ -11,31 +11,29 @@ router.get('/', withAuth, (req, res) => {
             id: req.session.user_id
         },
         attributes: { exclude: ['password'] },
-        include: {
+        include: [
+        {
             model: Follower,
             attributes: [[sequelize.literal('(SELECT username FROM user WHERE user.id=follower_id)'), 'follower_name']]
-        }
+        },
+        {
+            model: Post
+        }]
     })
     .then(dbProfileData => {
-        
-       //userData is an object of the user info from the database
-        const userData = dbProfileData.dataValues
-       
-        //followerData is an array of the names of followers of this user
-        const followerData = userData.followers.map(follower => {
-            return follower.dataValues.follower_name
-        }) 
-
-        userData.followers = followerData;
-        console.log(userData)
-        
-        res.render('profile', userData );
     
-    // .catch(err => {
-    //   console.log(err);
-    //   res.status(500).json(err);
-    // });
-    });
+    //serialize
+    const profileDataObj = dbProfileData.get({ plain: true });
+
+    console.log(profile)
+
+    //render profile page
+    res.render('profile', dbProfileData );
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });;
 });
 
 module.exports = router;
