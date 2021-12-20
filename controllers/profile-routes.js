@@ -3,7 +3,7 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment, Vote } = require('../models');
 const Follower = require('../models/Follower');
-const { process_params } = require('express/lib/router');
+
 
 router.get('/', withAuth, (req, res) => {
     User.findOne({
@@ -18,7 +18,28 @@ router.get('/', withAuth, (req, res) => {
             attributes: [[sequelize.literal('(SELECT username FROM user WHERE user.id=follower_id)'), 'follower_name']]
         },
         {
-            model: Post
+            model: Post,
+            attributes: [
+                'id',
+                'post_url',
+                'title',
+                'created_at',
+                [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE id = vote.post_id)'), 'vote_count']
+              ],
+              include: [
+                {
+                  model: Comment,
+                  attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                  include: {
+                    model: User,
+                    attributes: ['username']
+                  }
+                },
+                {
+                  model: User,
+                  attributes: ['username']
+                }
+              ]
         }]
     })
     .then(dbProfileData => {

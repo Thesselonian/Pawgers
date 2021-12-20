@@ -169,6 +169,26 @@ main {
   margin-bottom: 5%;
 }
 
+#profile-name {
+  font-size: 2rem;
+  text-align: center;
+}
+
+#profile-email {
+  text-align: center;
+}
+
+.followers-container {
+  border: solid black 2px;
+  padding: 5px;
+}
+
+.posts-container {
+  border: solid black 2px;
+  padding: 5px;
+  margin-top: 10px;
+}
+
 footer {
   border-top: 1px solid #ccc;
   display: flex;
