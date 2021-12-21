@@ -1,3 +1,8 @@
+const req = require("express/lib/request");
+const { use } = require("../controllers");
+const { User } = require("../models");
+
+
 module.exports = {
     format_date: date => {
         return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(
@@ -19,4 +24,12 @@ module.exports = {
             .split('/')[0]
             .split('?'[0])[0];
     },
+    checkLoginMatch: ( currentUser, viewedUser, postID ) => {
+        if( currentUser === viewedUser ) {
+            console.log("user", currentUser)
+            console.log('viewer', viewedUser)
+            return `<a href="/dashboard/edit/${postID}" class="edit-link">Edit post</a>`
+        }
+        
+    }
 }

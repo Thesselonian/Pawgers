@@ -1,3 +1,4 @@
+
 <section id="profile-body">
 
     <h1 id="profile-name">{{username}}</h1>
@@ -9,7 +10,7 @@
         <ul id="follower-list">
             {{#each followers}}
             <li class="follower-name-container">
-                <a href="/users/{{this.follower_name}}" target="blank" class="follower-name">{{this.follower_name}}</a>
+                <a href="/profile/{{this.follower_id}}" target="blank" class="follower-name">{{this.follower_name}}</a>
             </li>
             {{/each}}
         </ul>
@@ -24,10 +25,14 @@
             {{#each posts as |post|}}
             <li>
                 {{> post-info post}}
-                <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+                
+                {{{checkLoginMatch ../currentUser ../username id}}}
+                {{!-- <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a> --}}
+                
             </li>
             {{/each}}
         </ul>
 
     </div>
 </section>
+

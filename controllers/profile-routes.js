@@ -15,7 +15,7 @@ router.get('/', withAuth, (req, res) => {
         include: [
         {
             model: Follower,
-            attributes: [[sequelize.literal('(SELECT username FROM user WHERE user.id=follower_id)'), 'follower_name']]
+            attributes: ['follower_id', [sequelize.literal('(SELECT username FROM user WHERE user.id=follower_id)'), 'follower_name']]
         },
         {
             model: Post,
@@ -46,14 +46,72 @@ router.get('/', withAuth, (req, res) => {
     
     //serialize
     const profileDataObj = dbProfileData.get({ plain: true });
-
+    profileDataObj.loggedIn = req.session.loggedIn
+    profileDataObj.currentUser = req.session.username
+   
     //render profile page
     res.render('profile', profileDataObj );
+
     })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
     });;
+});
+
+//get another person's profile when a link is clicked via a profile
+router.get('/:id', withAuth, (req, res) => {
+  User.findOne({
+    where: {
+      // use the ID from the session
+      id: req.params.id
+  },
+  attributes: { exclude: ['password'] },
+  include: [
+  {
+      model: Follower,
+      attributes: ['follower_id', [sequelize.literal('(SELECT username FROM user WHERE user.id=follower_id)'), 'follower_name']]
+  },
+  {
+      model: Post,
+      attributes: [
+          'id',
+          'post_url',
+          'title',
+          'created_at',
+          [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE id = vote.post_id)'), 'vote_count']
+        ],
+        include: [
+          {
+            model: Comment,
+            attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+            include: {
+              model: User,
+              attributes: ['username']
+            }
+          },
+          {
+            model: User,
+            attributes: ['username']
+          }
+        ]
+  }]
+})
+.then(dbProfileData => {
+
+//serialize
+const profileDataObj = dbProfileData.get({ plain: true });
+profileDataObj.loggedIn = req.session.loggedIn
+profileDataObj.currentUser = req.session.username
+
+//render profile page
+res.render('profile', profileDataObj );
+
+})
+.catch(err => {
+console.log(err);
+res.status(500).json(err);
+});;
 });
 
 module.exports = router;
