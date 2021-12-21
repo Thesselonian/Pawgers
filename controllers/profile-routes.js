@@ -103,7 +103,7 @@ router.get('/:id', withAuth, (req, res) => {
 const profileDataObj = dbProfileData.get({ plain: true });
 profileDataObj.loggedIn = req.session.loggedIn
 profileDataObj.currentUser = req.session.username
-
+console.log(req.session)
 //render profile page
 res.render('profile', profileDataObj );
 
@@ -113,5 +113,22 @@ console.log(err);
 res.status(500).json(err);
 });;
 });
+
+
+//add new follow relationship
+router.post('/', (req, res) => {
+  /* req.body should look like this...
+    {
+      user_id: 
+      follower_id: 4
+    }
+  */
+  Follower.create(req.body)
+    .then((newFollow) => res.status(200).json(newFollow))
+    .catch((err) => {
+      console.log(err);
+      res.status(400).json(err);
+    });
+  });
 
 module.exports = router;
