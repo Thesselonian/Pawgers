@@ -26,10 +26,7 @@ module.exports = {
     },
     checkLoginMatch: ( currentUser, viewedUser, postID ) => {
         if( currentUser === viewedUser ) {
-            console.log("user", currentUser)
-            console.log('viewer', viewedUser)
             return `<a href="/dashboard/edit/${postID}" class="edit-link">Edit post</a>`
         }
-        
     }
 }
