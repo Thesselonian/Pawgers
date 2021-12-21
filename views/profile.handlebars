@@ -2,7 +2,7 @@
 
     <h1 id="profile-name">{{username}}</h1>
     <h3 id="profile-email">{{email}}</h3>
-
+    {{#if followers.length}}
     <div class="followers-container">
 
         <h3 id="follower-heading">These people follow {{username}}! </h3>
@@ -15,6 +15,7 @@
         </ul>
 
     </div>
+    {{/if}}
 
     <div class="posts-container">
 

@@ -47,7 +47,6 @@ router.get('/', withAuth, (req, res) => {
     //serialize
     const profileDataObj = dbProfileData.get({ plain: true });
 
-    console.log(profileDataObj)
     //render profile page
     res.render('profile', profileDataObj );
     })
