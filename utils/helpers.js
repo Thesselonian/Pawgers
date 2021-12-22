@@ -1,3 +1,5 @@
+const dogBreeds = require('./dog-breeds');
+
 module.exports = {
     format_date: date => {
         return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(
@@ -19,4 +21,10 @@ module.exports = {
             .split('/')[0]
             .split('?'[0])[0];
     },
+    getBreeds: () => {
+        const breedArray = dogBreeds.map(breed => {
+            return `<option value=${breed.name.replaceAll(' ', '-')}>${breed.name}</option>`;
+        });
+        return breedArray;
+    }
 }
