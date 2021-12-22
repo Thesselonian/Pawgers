@@ -1,8 +1,15 @@
 
 <section id="profile-body">
+    
+    <form action="/profile/follow" method="post">
+    <label for="user_id">{{session.user_id}}</label>
+        <button name="user_id" value="{{id}}"> Follow {{username}} </button>
+    </form>
 
     <h1 id="profile-name">{{username}}</h1>
     <h3 id="profile-email">{{email}}</h3>
+    
+
     {{#if followers.length}}
     <div class="followers-container">
 
@@ -26,8 +33,8 @@
             <li>
                 {{> post-info post}}
                 
-                {{{checkLoginMatch ../currentUser ../username id}}}
-                
+                {{{checkLoginMatch ../session.username ../username id}}}
+            
             </li>
             {{/each}}
         </ul>

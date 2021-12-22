@@ -47,7 +47,8 @@ router.get('/', withAuth, (req, res) => {
     //serialize
     const profileDataObj = dbProfileData.get({ plain: true });
     profileDataObj.loggedIn = req.session.loggedIn
-    profileDataObj.currentUser = req.session.username
+   
+
    
     //render profile page
     res.render('profile', profileDataObj );
@@ -102,8 +103,7 @@ router.get('/:id', withAuth, (req, res) => {
 //serialize
 const profileDataObj = dbProfileData.get({ plain: true });
 profileDataObj.loggedIn = req.session.loggedIn
-profileDataObj.currentUser = req.session.username
-console.log(req.session)
+
 //render profile page
 res.render('profile', profileDataObj );
 
@@ -116,7 +116,7 @@ res.status(500).json(err);
 
 
 //add new follow relationship
-router.post('/', (req, res) => {
+router.post('/follow', (req, res) => {
   /* req.body should look like this...
     {
       user_id: 
@@ -124,7 +124,10 @@ router.post('/', (req, res) => {
     }
   */
   Follower.create(req.body)
-    .then((newFollow) => res.status(200).json(newFollow))
+    .then((newFollow) => {
+      console.log(req.body)
+      res.status(200).json(newFollow)
+    })
     .catch((err) => {
       console.log(err);
       res.status(400).json(err);
