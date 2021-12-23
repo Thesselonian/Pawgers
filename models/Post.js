@@ -59,6 +59,10 @@ Post.init(
         model: 'user',
         key: 'id'
       }
+    },
+    image_public_id: {
+      type: DataTypes.STRING,
+      allowNull: true,
     }
   },
   {

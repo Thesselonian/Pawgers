@@ -3,6 +3,8 @@ const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 
+global.__basedir = __dirname;
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -21,6 +23,8 @@ const sess = {
     db: sequelize
   })
 };
+
+
 
 app.use(session(sess));
 
