@@ -10,10 +10,6 @@ router.use('/', homeRoutes)
 router.use('/dashboard', dashboardRoutes);
 router.use('/adoption', adoptionRoutes);
 
-router.get('/oops', (req, res) => {
-    res.render('oops');
-});
-
 
 
 module.exports = router;

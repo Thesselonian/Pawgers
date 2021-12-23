@@ -22,9 +22,9 @@ router.get('/', (req, res) => {
    getApiToken();
 });
 
-// router.get('/oops', (req, res) => {
-//    res.render('oops');
-// });
+router.get('/oops', (req, res) => {
+   res.render('oops');
+});
 
 router.get('/noDogs', (req, res) => {
    res.render('no-dogs');
@@ -42,14 +42,13 @@ router.post('/results', (req, res) => {
          }).then(function (data) {
             console.log(data);
             if (!data.animals.length || !data) {
-               // res.render('no-dogs');
                res.redirect('/adoption/noDogs');
             } else {
                res.render('adoption-results', data);
             }
          })
          .catch(() => {
-            res.redirect('/oops');
+            res.redirect('/adoption/oops');
          });
    };
    getAdoptionData();
