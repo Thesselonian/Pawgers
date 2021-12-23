@@ -26,13 +26,12 @@ router.get('/', (req, res) => {
 //    res.render('oops');
 // });
 
-router.get('/noDogs', (req, res) => {
-   res.render('no-dogs');
-});
+// router.get('/noDogs', (req, res) => {
+//    res.render('no-dogs');
+// });
 
 router.post('/results', (req, res) => {
    let getAdoptionData = function () {
-      console.log(req.body);
       fetch(`https://api.petfinder.com/v2/animals?type=dog&breed=${req.body.breed}&location=${req.body.zipCode}&distance=${req.body.distance}`, {
          headers: {
             Authorization: `Bearer ${process.env.API_TOKEN}`
@@ -44,7 +43,7 @@ router.post('/results', (req, res) => {
             console.log(data);
             if (!data.animals.length || !data) {
                // res.render('no-dogs');
-               res.redirect('/adoption/noDogs');
+               res.redirect('/noDogs');
             } else {
                res.render('adoption-results', data);
             }
