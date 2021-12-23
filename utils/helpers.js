@@ -23,7 +23,7 @@ module.exports = {
     },
     getBreeds: () => {
         const breedArray = dogBreeds.map(breed => {
-            return `<option value=${breed.name.replaceAll(' ', '-')}>${breed.name}</option>`;
+            return `<option value=${breed}>${breed.name}</option>`;
         });
         return breedArray;
     }
