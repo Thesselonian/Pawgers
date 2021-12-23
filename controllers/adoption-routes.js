@@ -26,9 +26,9 @@ router.get('/', (req, res) => {
 //    res.render('oops');
 // });
 
-// router.get('/noDogs', (req, res) => {
-//    res.render('no-dogs');
-// });
+router.get('/noDogs', (req, res) => {
+   res.render('no-dogs');
+});
 
 router.post('/results', (req, res) => {
    let getAdoptionData = function () {
@@ -43,7 +43,7 @@ router.post('/results', (req, res) => {
             console.log(data);
             if (!data.animals.length || !data) {
                // res.render('no-dogs');
-               res.redirect('/noDogs');
+               res.redirect('/adoption/noDogs');
             } else {
                res.render('adoption-results', data);
             }

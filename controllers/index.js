@@ -13,9 +13,6 @@ router.use('/adoption', adoptionRoutes);
 router.get('/oops', (req, res) => {
     res.render('oops');
 });
-router.get('/noDogs', (req, res) => {
-    res.render('no-dogs');
-});
 
 
 
