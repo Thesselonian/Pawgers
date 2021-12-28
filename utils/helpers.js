@@ -1,7 +1,3 @@
-const req = require("express/lib/request");
-const { use } = require("../controllers");
-const { User } = require("../models");
-
 
 module.exports = {
     format_date: date => {
@@ -28,5 +24,20 @@ module.exports = {
         if( currentUser === viewedUser ) {
             return `<a href="/dashboard/edit/${postID}" class="edit-link">Edit post</a>`
         }
+    },
+    checkFollowStatus: ( followersArray, currentUserID, followedUsername, followedUserID ) => {
+        let ecstasy = followersArray.find(entry => entry.follower_id === currentUserID)
+        //google onsubmit functionality and create a functino up here to make the api call
+            if(!ecstasy) {
+            return `<form action="/profile" method="post">
+                        <input type="hidden" name="follower_id" value="${currentUserID}"></input>
+                        <button name="user_id" value="${followedUserID}"> Follow ${followedUsername} </button>
+                    </form>`
+            } else {
+                return `<form action="/profile" onSubmit={functionName}>
+                        <button name="user_id" value="${followedUserID}"> Unfollow ${followedUsername} </button>
+                        <input type="hidden" name="follower_id" value="${currentUserID}"></input>
+                    </form>`
+            }
     }
 }

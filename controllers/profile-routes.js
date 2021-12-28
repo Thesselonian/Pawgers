@@ -5,6 +5,8 @@ const { Post, User, Comment, Vote } = require('../models');
 const Follower = require('../models/Follower');
 
 
+
+//get the current user's profile
 router.get('/', withAuth, (req, res) => {
     User.findOne({
         where: {
@@ -47,7 +49,7 @@ router.get('/', withAuth, (req, res) => {
     //serialize
     const profileDataObj = dbProfileData.get({ plain: true });
     profileDataObj.loggedIn = req.session.loggedIn
-   
+    // console.log(profileDataObj)
 
    
     //render profile page
@@ -65,7 +67,7 @@ router.get('/:id', withAuth, (req, res) => {
   User.findOne({
     where: {
       // use the ID from the session
-      id: req.params.id
+      id: req.params.id,
   },
   attributes: { exclude: ['password'] },
   include: [
@@ -103,6 +105,8 @@ router.get('/:id', withAuth, (req, res) => {
 //serialize
 const profileDataObj = dbProfileData.get({ plain: true });
 profileDataObj.loggedIn = req.session.loggedIn
+// console.log(profileDataObj)
+
 
 //render profile page
 res.render('profile', profileDataObj );
@@ -116,7 +120,7 @@ res.status(500).json(err);
 
 
 //add new follow relationship
-router.post('/follow', (req, res) => {
+router.post('/', (req, res) => {
   /* req.body should look like this...
     {
       user_id: 
@@ -125,13 +129,34 @@ router.post('/follow', (req, res) => {
   */
   Follower.create(req.body)
     .then((newFollow) => {
-      console.log(req.body)
-      res.status(200).json(newFollow)
+      res.redirect(`/profile/${req.body.user_id}`)
     })
     .catch((err) => {
       console.log(err);
       res.status(400).json(err);
     });
   });
+
+router.delete(':user_id&:follower_id', (req, res) => {
+  console.log(req.params)
+  Follower.destroy({
+    where: {
+      user_id: req.params.user_id,
+      follower_id: req.params.follower_id
+    }
+  })
+  .then(followData => {
+    console.log('followdata', followData)
+    if (!followData) {
+      res.status(404).json({ message: 'No follow found with this id' });
+      return;
+    }
+    res.json(followData);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+})
 
 module.exports = router;

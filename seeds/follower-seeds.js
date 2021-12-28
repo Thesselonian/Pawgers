@@ -49,6 +49,10 @@ const followerData = [
     user_id: 5,
     follower_id: 3,
   },
+  {
+    user_id: 5,
+    follower_id: 1,
+  }
 ];
 
 const seedFollowers = () => Follower.bulkCreate(followerData);
