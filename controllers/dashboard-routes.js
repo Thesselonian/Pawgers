@@ -2,6 +2,7 @@ const withAuth = require('../utils/auth');
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
+const Follower = require('../models/Follower');
 
 // router.get('/', withAuth(), (req, res) => {
 router.get('/', withAuth, (req, res) => {
@@ -35,12 +36,16 @@ router.get('/', withAuth, (req, res) => {
     .then(dbPostData => {
     // serialize data before passing to template
     const posts = dbPostData.map(post => post.get({ plain: true }));
+  
     res.render('dashboard', { posts, loggedIn: true });
     })
+
     .catch(err => {
     console.log(err);
     res.status(500).json(err);
     });
+
+
 });
 
 router.get('/edit/:id', withAuth, (req, res) => {

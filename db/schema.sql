@@ -1,5 +1,5 @@
-DROP DATABASE IF EXISTS pawgers;
+DROP DATABASE IF EXISTS pawgers_db;
 
-CREATE DATABASE pawgers;
+CREATE DATABASE pawgers_db;
 
-USE pawgers;
+USE pawgers_db;
