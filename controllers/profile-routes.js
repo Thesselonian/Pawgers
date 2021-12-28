@@ -137,7 +137,7 @@ router.post('/', (req, res) => {
     });
   });
 
-router.delete(':user_id&:follower_id', (req, res) => {
+router.delete('/?:user_id&:follower_id', (req, res) => {
   console.log(req.params)
   Follower.destroy({
     where: {

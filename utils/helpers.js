@@ -1,4 +1,5 @@
 
+
 module.exports = {
     format_date: date => {
         return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(
@@ -34,9 +35,9 @@ module.exports = {
                         <button name="user_id" value="${followedUserID}"> Follow ${followedUsername} </button>
                     </form>`
             } else {
-                return `<form action="/profile" onSubmit={functionName}>
-                        <button name="user_id" value="${followedUserID}"> Unfollow ${followedUsername} </button>
-                        <input type="hidden" name="follower_id" value="${currentUserID}"></input>
+                return `<form>
+                        <button id="unfollow-btn" name="user_id" value="${followedUserID}"> Unfollow ${followedUsername} </button>
+                        <input id="unfollower" type="hidden" name="follower_id" value="${currentUserID}"></input>
                     </form>`
             }
     }
