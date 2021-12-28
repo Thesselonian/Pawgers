@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Just Tech News</title>
+  <title>Pawgers</title>
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
@@ -12,22 +13,23 @@
   <div class="wrapper">
     <header>
       <h1>
-        <a href="/">Just Tech News</a>
+        <a href="/"><img src="/images/LogoLetter.png"/></a>
       </h1>
       <nav>
         {{#if loggedIn}}
         <button id="logout" class="btn-no-style">Logout</button>
         <button id="dashboard-return" class="btn-no-style">Dashboard</button>
         {{else}}
-        <a href="/login">login</a>
+        <a href="/login">Login</a>
         {{/if}}
+        <a href="/adoption">Adoption</a>
       </nav>
     </header>
     <main>
       {{{ body }}}
     </main>
     <footer>
-      Thanks for visiting!
+      Thanks for visiting! 🐾
     </footer>
   </div>
   
