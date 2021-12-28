@@ -1,4 +1,5 @@
 
+const dogBreeds = require('./dog-breeds');
 
 module.exports = {
     format_date: date => {
@@ -40,5 +41,12 @@ module.exports = {
                         <input id="unfollower" type="hidden" name="follower_id" value="${currentUserID}"></input>
                     </form>`
             }
+    
+    },
+    getBreeds: () => {
+        const breedArray = dogBreeds.map(breed => {
+            return `<option value=${breed.name.replaceAll(' ', '-')}>${breed.name}</option>`;
+        });
+        return breedArray;
     }
 }
