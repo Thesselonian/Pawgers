@@ -12,7 +12,7 @@ async function unfollow (event) {
     });
 
   if (response.ok) {
-      console.log('**********HELLOOOOO***********')
+      
       document.location.replace(`/profile/${userID}`);
   } else {
       alert(response.statusText);
