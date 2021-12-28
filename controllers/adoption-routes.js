@@ -6,7 +6,7 @@ router.get('/', (req, res) => {
    let getApiToken = function () {
       fetch('https://api.petfinder.com/v2/oauth2/token', {
          method: 'POST',
-         body: `grant_type=client_credentials&client_id=${process.env.API_Key}&client_secret=${process.env.API_SECRET}`,
+         body: `grant_type=client_credentials&client_id=${process.env.API_KEY}&client_secret=${process.env.API_SECRET}`,
          headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
          }
