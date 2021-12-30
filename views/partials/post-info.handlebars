@@ -9,8 +9,10 @@
     {{/if}}
   </div>
   <div class="meta d-flex justify-content-center">
-    <span>{{vote_count}} {{format_plural "point" vote_count}} by <a href="/profile/{{user_id}}">{{user.username}}</a> on {{format_date created_at}}</span>
-    |
-    <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+    <span>
+        {{vote_count}} {{format_plural "point" vote_count}} by <a href="/profile/{{user_id}}">{{user.username}}</a> on {{format_date created_at}}
+        |
+        <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+    </span>
   </div>
 </article>
