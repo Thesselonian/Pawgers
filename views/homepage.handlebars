@@ -1,8 +1,27 @@
+{{#if posts.length}}
+  <h2>Posts from users you follow:</h2>
+    <ol class="post-list">
+      {{#each posts as |post|}}
+      <li>
+        {{> post-info post }}
+      </li>
+      {{/each}}
+    </ol>
+{{/if}}
+{{!-- if not loggedIn, we loop through the prePosts array rather than the posts array. --}}
+{{#if prePosts.length}}
+  <h2>Posts from users around the world!</h2>
+  <h3><a href="/login">Log in to start following your favorite users!</a></h3>
 
 <ol class="post-list">
-  {{#each posts as |post|}}
-  <li>
-    {{> post-info post }}
-  </li>
-  {{/each}}
-</ol>
+      {{#each prePosts as |post|}}
+      <li>
+        {{> post-info post }}
+      </li>
+      {{/each}}
+    </ol>
+{{/if}}
+
+
+
+

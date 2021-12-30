@@ -1,10 +1,16 @@
 const router = require('express').Router();
+const sequelize = require('../../config/connection');
 const { User, Post, Comment, Vote } = require('../../models');
+const Follower = require('../../models/Follower');
 
 // get all users
 router.get('/', (req, res) => {
   User.findAll({
-    attributes: { exclude: ['password'] }
+    attributes: { exclude: ['password'] },
+    include: {
+      model: Follower,
+      attributes: [[sequelize.literal('(SELECT username FROM user WHERE user.id=follower_id)'), 'follower_name']]
+    }
   })
     .then(dbUserData => res.json(dbUserData))
     .catch(err => {
@@ -37,6 +43,10 @@ router.get('/:id', (req, res) => {
         attributes: ['title'],
         through: Vote,
         as: 'voted_posts'
+      },
+      {
+        model: Follower,
+        attributes: [[sequelize.literal('(SELECT username FROM user WHERE user.id=follower_id)'), 'follower_name']]
       }
     ]
   })

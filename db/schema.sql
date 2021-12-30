@@ -1,3 +1,5 @@
-DROP DATABASE IF EXISTS newsfeed_db;
+DROP DATABASE IF EXISTS pawgers_db;
 
-CREATE DATABASE newsfeed_db;
+CREATE DATABASE pawgers_db;
+
+USE pawgers_db;
