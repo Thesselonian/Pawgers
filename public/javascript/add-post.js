@@ -1,25 +1,47 @@
-async function newFormHandler(event) {
-    event.preventDefault();
-
-    // get all the form inputs
+async function newFormHandler(public_id) {
     const title = document.querySelector('input[name="post_title"]').value;
-    const post_url = document.querySelector('input[name="post_url"]').value;
-    const inpFile = document.getElementById('image');
-    const image = inpFile.files[0]
-
-    console.log(image)
+    const post_text_content = document.querySelector('input[name="post_text_content"]').value;
+    const post = {
+        title,
+        post_text_content
+    }
+    if (typeof public_id === 'string') {
+        post.imagePublicID = public_id
+    }
 
     const response = await fetch(`/api/posts`, {
         method: 'POST',
-        body: JSON.stringify({
-            title,
-            post_url
-        }),
-        // body: formData,
-        // headers: {
-        //     'Content-Type': 'application/json'
-        // }
+        body: JSON.stringify(post),
+        headers: {
+            'Content-Type': 'application/json'
+        }
     });
+    if (response.ok) {
+        window.location.replace('/dashboard'); 
+    }
+    else {
+        alert(response.statusText);
+    }
 }
 
-document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
+const myWidget = cloudinary.createUploadWidget({
+    cloudName: 'dr3wpa5jd',
+    uploadPreset: 'pawgers-post'
+}, (error, result) => {
+    if (!error && result && result.event === "success") {
+        newFormHandler(result.info.public_id)
+    }
+}
+)
+
+document.getElementById("upload_widget").addEventListener("click", function(event){
+    event.preventDefault();
+    myWidget.open()
+    }, 
+    false
+);
+
+document.querySelector('.new-post-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    newFormHandler();
+});

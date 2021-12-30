@@ -12,7 +12,7 @@ body, html {
 
 a {
   text-decoration: none;
-  color: #225ca3;
+  color: #143864;
   font-weight: bold;
   transition: color .1s;
 }
@@ -39,6 +39,7 @@ button:hover {
 .post-list {
   margin: 0;
   padding: 0;
+  list-style-type: none;
 }
 
 textarea, input {
