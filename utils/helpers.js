@@ -1,4 +1,3 @@
-
 const dogBreeds = require('./dog-breeds');
 
 module.exports = {
@@ -7,6 +6,7 @@ module.exports = {
             date
         ).getFullYear()}`;
     },
+
     format_plural: (word, amount) => {
         if(amount !== 1) {
             return `${word}s`;
@@ -14,19 +14,13 @@ module.exports = {
 
         return word;
     },
-    format_url: url => {
-        return url
-            .replace('http://', '')
-            .replace('https://', '')
-            .replace('www.', '')
-            .split('/')[0]
-            .split('?'[0])[0];
-    },
+
     checkLoginMatch: ( currentUser, viewedUser, postID ) => {
         if( currentUser === viewedUser ) {
             return `<a href="/dashboard/edit/${postID}" class="edit-link">Edit post</a>`
         }
     },
+    
     checkFollowStatus: ( followersArray, currentUserID, followedUsername, followedUserID ) => {
         let ecstasy = followersArray.find(entry => entry.follower_id === currentUserID)
         //google onsubmit functionality and create a functino up here to make the api call
