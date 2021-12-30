@@ -1,6 +1,6 @@
 <article class="post">
   <div class="title">
-    <h3 class="d-flex justify-content-center">{{title}}</h3>
+    <h3 class="d-flex justify-content-center"><a href="/post/{{id}}">{{title}}</a></h3>
     <p class="d-flex justify-content-center">{{post_text_content}}</p>
   </div>
   <div class="d-flex justify-content-center">
@@ -9,7 +9,7 @@
     {{/if}}
   </div>
   <div class="meta d-flex justify-content-center">
-    {{vote_count}} {{format_plural "point" vote_count}} by {{user.username}} on {{format_date created_at}}
+    <span>{{vote_count}} {{format_plural "point" vote_count}} by <a href="/profile/{{user_id}}">{{user.username}}</a> on {{format_date created_at}}</span>
     |
     <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
   </div>
