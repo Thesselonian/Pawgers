@@ -16,6 +16,7 @@
       <h1>
         <a href="/"><img src="/images/LogoLetter.png"/></a>
       </h1>
+      {{!-- <div class="gcse-search"></div> --}}
       <nav>
         {{#if loggedIn}}
         <button id="logout" class="btn-no-style">Logout</button>
@@ -29,7 +30,7 @@
         <a href="/login">Login</a>
         {{/if}}
         <a class="btn-no-style"href="/adoption">Adoption</a>
-        <div class="gcse-search"></div>
+        
       </nav>
     </header>
     <main>
@@ -44,7 +45,7 @@
   <script src="/javascript/logout.js"></script>
   {{/if}}
   {{!-- this is the google search script --}}
-  <script async src="https://cse.google.com/cse.js?cx=6112ecf884e914e4d">
+  {{!-- <script async src="https://cse.google.com/cse.js?cx=6112ecf884e914e4d"> --}}
 </script>
 
 </body>
