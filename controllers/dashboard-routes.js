@@ -32,7 +32,8 @@ router.get('/', withAuth, (req, res) => {
           model: User,
           attributes: ['username']
         }
-      ]
+      ],
+      order: [['updatedAt', 'DESC']]
     })
     .then(dbPostData => {
     // serialize data before passing to template
@@ -59,6 +60,8 @@ router.get('/edit/:id', withAuth, (req, res) => {
           'post_text_content',
           'title',
           'created_at',
+          'user_id',
+          'image_public_id',
           [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
         ],
         include: [

@@ -98,10 +98,10 @@ router.put('/upvote', withAuth, (req, res) => {
   if (req.session) {
     Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
       .then(updatedVoteData => res.json(updatedVoteData))
-      .then(res.redirect('/dashboard'))
       .catch(err => {
         console.log(err);
         res.status(500).json(err);
+        throw "you already voted"
       });
   }
 });

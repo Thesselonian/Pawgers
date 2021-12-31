@@ -1,0 +1,11 @@
+{{#if posts.length}}
+  <h2>Posts from users around the world!</h2>
+
+<ul class="post-list">
+      {{#each posts as |post|}}
+      <li>
+        {{> post-info post }}
+      </li>
+      {{/each}}
+    </ul>
+{{/if}}

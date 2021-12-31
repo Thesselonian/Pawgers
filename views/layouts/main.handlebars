@@ -16,16 +16,21 @@
       <h1>
         <a href="/"><img src="/images/LogoLetter.png"/></a>
       </h1>
+      {{!-- <div class="gcse-search"></div> --}}
       <nav>
         {{#if loggedIn}}
         <button id="logout" class="btn-no-style">Logout</button>
+        <button id="explore" class="btn-no-style">Explore</button>
         <button id="dashboard-return" class="btn-no-style">Dashboard</button>
         <button id="profile-return" class="btn-no-style">My Profile</button>
+
+        
 
         {{else}}
         <a href="/login">Login</a>
         {{/if}}
         <a class="btn-no-style"href="/adoption">Adoption</a>
+        
       </nav>
     </header>
     <main>
@@ -39,6 +44,10 @@
   {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
   {{/if}}
+  {{!-- this is the google search script --}}
+  {{!-- <script async src="https://cse.google.com/cse.js?cx=6112ecf884e914e4d"> --}}
+</script>
+
 </body>
 
 </html>

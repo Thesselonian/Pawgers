@@ -29,9 +29,10 @@
     <div class="posts-container">
 
         <h3 id="post-heading">{{username}}'s Posts:</h3>
-        <ul id="post-list">
+        <ul class="post-list">
+            
             {{#each posts as |post|}}
-            <li>
+            <li class="post-container">
                 {{> post-info post}}
                 
                 {{{checkLoginMatch ../session.username ../username id }}}
