@@ -32,7 +32,8 @@ router.get('/', withAuth, (req, res) => {
           model: User,
           attributes: ['username']
         }
-      ]
+      ],
+      order: [['updatedAt', 'DESC']]
     })
     .then(dbPostData => {
     // serialize data before passing to template

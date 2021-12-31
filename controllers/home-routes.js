@@ -32,7 +32,8 @@ router.get('/', (req, res) => {
           attributes: [ 'follower_id' ]
         }
       }
-    ]
+    ],
+    order: [['updatedAt', 'DESC']]
   })
     .then(dbPostData => {
       
