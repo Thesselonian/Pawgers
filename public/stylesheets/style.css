@@ -12,7 +12,7 @@ body, html {
 
 a {
   text-decoration: none;
-  color: #225ca3;
+  color: #143864;
   font-weight: bold;
   transition: color .1s;
 }
@@ -38,7 +38,26 @@ button:hover {
 
 .post-list {
   margin: 0;
-  padding: 0;
+  padding: 1rem;
+  list-style-type: none;
+}
+
+#follower-list {
+  margin: 0;
+  padding: 1rem;
+  list-style-type: none;
+}
+
+#follower-heading {
+  text-align: center;
+}
+
+#post-heading {
+  text-align: center;
+}
+
+.edit-link{
+text-align: center;
 }
 
 textarea, input {
@@ -122,6 +141,7 @@ main {
   line-height: 150%;
 }
 
+
 .post .title span {
   font-style: italic;
   font-size: 90%;
@@ -169,6 +189,26 @@ main {
   margin-bottom: 5%;
 }
 
+#profile-name {
+  font-size: 2rem;
+  text-align: center;
+}
+
+#profile-email {
+  text-align: center;
+}
+
+.followers-container {
+  border: solid black 2px;
+  padding: 5px;
+}
+
+.posts-container {
+  border: solid black 2px;
+  padding: 5px;
+  margin-top: 10px;
+}
+
 footer {
   border-top: 1px solid #ccc;
   display: flex;
@@ -176,3 +216,4 @@ footer {
   padding: 1%;
   font-size: 110%;
 }
+

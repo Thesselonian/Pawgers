@@ -1,15 +1,18 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment, Vote } = require('../models');
+const Follower = require('../models/Follower');
 
 // get all posts for homepage
 router.get('/', (req, res) => {
   Post.findAll({
     attributes: [
       'id',
-      'post_url',
+      'post_text_content',
       'title',
       'created_at',
+      'user_id',
+      'image_public_id',
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
@@ -23,17 +26,42 @@ router.get('/', (req, res) => {
       },
       {
         model: User,
-        attributes: ['username']
+        attributes: ['username'],
+        include: {
+          model: Follower,
+          attributes: [ 'follower_id' ]
+        }
       }
-    ]
+    ],
+    order: [['updatedAt', 'DESC']]
   })
     .then(dbPostData => {
-      const posts = dbPostData.map(post => post.get({ plain: true }));
+      
+      const prePosts = dbPostData.map(post => post.get({ plain: true }));
+      //if logged in, show only posts of users that the current user is following.
+      if (req.session.loggedIn){
+      const posts = prePosts.filter(post => {
+       let followerArray = post.user.followers;
+      //  console.log('followerArray', followerArray)
+       let followerArrayFiltered = followerArray.map(follower => {return follower.follower_id});
+      //  console.log('followerArrayFiltered', followerArrayFiltered)
+       if (followerArrayFiltered.includes(req.session.user_id)){
+         return true;
+       }
+      });
 
       res.render('homepage', {
         posts,
         loggedIn: req.session.loggedIn
-      });
+      });} else {
+        //if not logged in show all posts of all users
+        res.render('homepage', {
+          prePosts,
+          loggedIn: req.session.loggedIn
+        })
+
+      }
+
     })
     .catch(err => {
       console.log(err);
@@ -49,9 +77,11 @@ router.get('/post/:id', (req, res) => {
     },
     attributes: [
       'id',
-      'post_url',
+      'post_text_content',
       'title',
       'created_at',
+      'image_public_id',
+      'user_id',
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [

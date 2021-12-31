@@ -1,11 +1,18 @@
 <article class="post">
   <div class="title">
-    <a href="{{post_url}}" target="_blank">{{title}}</a>
-    <span>({{format_url post_url}})</span>
+    <h3 class="d-flex justify-content-center"><a href="/post/{{id}}">{{title}}</a></h3>
+    <p class="d-flex justify-content-center">{{post_text_content}}</p>
   </div>
-  <div class="meta">
-    {{vote_count}} {{format_plural "point" vote_count}} by {{user.username}} on {{format_date created_at}}
-    |
-    <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+  <div class="d-flex justify-content-center">
+    {{#if image_public_id}}
+      <img class="align-self-center mr-3" src="https://res.cloudinary.com/dr3wpa5jd/image/upload/v1640227206/{{image_public_id}}.jpg">
+    {{/if}}
+  </div>
+  <div class="meta d-flex justify-content-center">
+    <span>
+        {{vote_count}} {{format_plural "point" vote_count}} by <a href="/profile/{{user_id}}">{{user.username}}</a> on {{format_date created_at}}
+        |
+        <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+    </span>
   </div>
 </article>
