@@ -18,6 +18,14 @@ const followerData = [
     follower_id: 6,
   },
   {
+    user_id: 2,
+    follower_id: 7,
+  },
+  {
+    user_id: 2,
+    follower_id: 1,
+  },
+  {
     user_id: 3,
     follower_id: 1,
   },

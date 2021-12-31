@@ -11,6 +11,8 @@ router.get('/', (req, res) => {
       'post_text_content',
       'title',
       'created_at',
+      'user_id',
+      'image_public_id',
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
@@ -30,7 +32,8 @@ router.get('/', (req, res) => {
           attributes: [ 'follower_id' ]
         }
       }
-    ]
+    ],
+    order: [['updatedAt', 'DESC']]
   })
     .then(dbPostData => {
       
@@ -77,6 +80,8 @@ router.get('/post/:id', (req, res) => {
       'post_text_content',
       'title',
       'created_at',
+      'image_public_id',
+      'user_id',
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [

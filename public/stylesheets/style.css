@@ -38,8 +38,26 @@ button:hover {
 
 .post-list {
   margin: 0;
-  padding: 0;
+  padding: 1rem;
   list-style-type: none;
+}
+
+#follower-list {
+  margin: 0;
+  padding: 1rem;
+  list-style-type: none;
+}
+
+#follower-heading {
+  text-align: center;
+}
+
+#post-heading {
+  text-align: center;
+}
+
+.edit-link{
+text-align: center;
 }
 
 textarea, input {
@@ -122,6 +140,7 @@ main {
   margin-bottom: 2%;
   line-height: 150%;
 }
+
 
 .post .title span {
   font-style: italic;
