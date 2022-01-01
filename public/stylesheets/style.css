@@ -86,8 +86,8 @@ form label {
 }
 
 main {
-  display: flex;
-  flex: 1;
+  /* display: flex; */
+  /* flex: 1; */
   padding: 2% 4%;
   justify-content: center;
 }
@@ -134,7 +134,7 @@ nav.navbar {
   font-weight: bold;
   transition: color .1s;
   margin-left: 16px;
-  padding-bottom: 2vw;
+  padding-bottom: 1vw;
 }
 
 .btn-no-style:hover {
@@ -151,22 +151,28 @@ nav.navbar {
 }
 
 .card{
-  display: flex;
+  float: left;
   justify-content: center;
   align-items: center;
-  margin: 5vw;
+  margin: 3vw;
   width: 20vw;
   cursor: pointer;
+  text-align: center;
 }
 
+.doggo-name{
+  font-weight: bold;
+  font-size: 2vw;
+}
 
 .doggo-img{
   width:  15vw;
   height: 20vw;
   object-fit: cover;
-  margin: 1vw;
+  margin: 0 auto;
   position: relative;
   border-radius: 10px;
+  display: block;
 }
 
 .image__overlay{
@@ -278,6 +284,10 @@ nav.navbar {
 .signup-form{
   padding-left: 5vw;
   padding-top: 3vw;
+}
+
+#profile-body{
+  width: 100%;
 }
 
 #profile-name {

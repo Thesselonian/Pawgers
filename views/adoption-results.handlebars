@@ -1,7 +1,7 @@
 <body>
     {{#each animals}}
-            <div class="card" onclick="window.open('{{url}}','_blank')">
-                <p>{{name}}</p>
+            <div class="card column is-one-quarter" onclick="window.open('{{url}}','_blank')">
+                <p class="doggo-name">{{name}}</p>
                 {{#if photos.0.full}}<img class="doggo-img" src={{photos.0.full}}>{{else}}<img src="https://helpemup.com/wp-content/uploads/2017/05/dreamstime_l_78844450-904x602.jpg">{{/if}} {{!-- KEVIN PLEASE PUT A PLACEHOLDER IMAGE IN THE SECOND IMG SRC ON THIS LINE  --}}
                 <div>About {{name}}
                     {{#if age}}<p>Age: {{age}}</p>{{else}}<p>Age: Unknown</p>{{/if}}
@@ -20,7 +20,7 @@
                     {{#if contact.phone}}<a href='tel:{{contact.phone}}'>Phone: {{contact.phone}}</a>{{else}}<p>No phone number on file</p>{{/if}} --}}
                 {{!-- </div> --}}
             <div class="image__overlay">
-                <div class="image__title">ADOPT ME NOW!</div>
+                <div class="image__title">ADOPT ME!</div>
             </div>
             </div>
     {{/each}}
