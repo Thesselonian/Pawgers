@@ -20,7 +20,7 @@
     <h2 class="d-flex justify-content-center border-bottom border-primary mb-4 mt-4">Your Posts</h2>
     <ul class="post-list">
         {{#each posts as |post|}}
-        <li class = "border-bottom border-secondary mb-4 bg-secondary rounded">
+        <li class = "border-bottom mb-4 rounded">
             {{> post-info post}}
             <a href="/dashboard/edit/{{post.id}}" class="edit-link d-flex justify-content-center">Edit post</a>
         </li>

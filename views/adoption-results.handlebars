@@ -1,26 +1,28 @@
 <body>
     {{#each animals}}
-        <div class="card ">
-            <p>{{name}}</p>
-            {{#if photos.0.full}}<img src={{photos.0.full}}>{{else}}<img src="https://helpemup.com/wp-content/uploads/2017/05/dreamstime_l_78844450-904x602.jpg">{{/if}} {{!-- KEVIN PLEASE PUT A PLACEHOLDER IMAGE IN THE SECOND IMG SRC ON THIS LINE  --}}
-            <div>About {{name}}
-                {{#if age}}<p>Age: {{age}}</p>{{else}}<p>Age: Unknown</p>{{/if}}
-                {{#if gender}}<p>Gender: {{gender}}</p>{{else}}<p>Gender: Unknown</p>{{/if}}
-                {{#if size}}<p>Size: {{size}}</p>{{else}}<p>Size: Unknown</p>{{/if}}
-                {{#if coat}}<p>Coat: {{coat}}</p>{{else}}<p>Coat: Unknown</p>{{/if}}
+            <div class="card" onclick="window.open('{{url}}','_blank')">
+                <p>{{name}}</p>
+                {{#if photos.0.full}}<img class="doggo-img" src={{photos.0.full}}>{{else}}<img src="https://helpemup.com/wp-content/uploads/2017/05/dreamstime_l_78844450-904x602.jpg">{{/if}} {{!-- KEVIN PLEASE PUT A PLACEHOLDER IMAGE IN THE SECOND IMG SRC ON THIS LINE  --}}
+                <div>About {{name}}
+                    {{#if age}}<p>Age: {{age}}</p>{{else}}<p>Age: Unknown</p>{{/if}}
+                    {{#if gender}}<p>Gender: {{gender}}</p>{{else}}<p>Gender: Unknown</p>{{/if}}
+                    {{#if size}}<p>Size: {{size}}</p>{{else}}<p>Size: Unknown</p>{{/if}}
+                    {{#if coat}}<p>Coat: {{coat}}</p>{{else}}<p>Coat: Unknown</p>{{/if}}
+                </div>
+                <p>Health Info for {{name}}
+                    {{#if attributes.spayed_neutered}}<p>Spayed/Neutered: Yes</p>{{else}}<p>Spayed/Neutered: No</p>{{/if}}
+                    {{#if attributes.special_needs}}<p>Special Needs: Yes</p>{{else}}<p>Special Needs: No</p>{{/if}}
+                    {{#if attributes.shots_current}}<p>Shots Current: Yes</p>{{else}}<p>Shots Current: No</p>{{/if}}
+                    {{#if contact.address.state}}<p>Located in {{contact.address.city}}, {{contact.address.state}}</p>{{else}}<p>No location on file</p>{{/if}}
+                </p>
+                {{!-- <div> Contact Info for {{name}}
+                    {{#if contact.email}}<a href='mailto:{{contact.email}}?subject=Adoption Info for {{name}}&body=Hello,%0D%0A%0D%0AI found a posting for {{name}} online and may want to adopt them.%0D%0A%0D%0AHope to hear back from you soon!'>Email: {{contact.email}}</a>{{else}}<p>No email on file</p>{{/if}}
+                    {{#if contact.phone}}<a href='tel:{{contact.phone}}'>Phone: {{contact.phone}}</a>{{else}}<p>No phone number on file</p>{{/if}} --}}
+                {{!-- </div> --}}
+            <div class="image__overlay">
+                <div class="image__title">ADOPT ME NOW!</div>
             </div>
-            <div>Health Info for {{name}}
-                {{#if attributes.spayed_neutered}}<p>Spayed/Neutered: Yes</p>{{else}}<p>Spayed/Neutered: No</p>{{/if}}
-                {{#if attributes.special_needs}}<p>Special Needs: Yes</p>{{else}}<p>Special Needs: No</p>{{/if}}
-                {{#if attributes.shots_current}}<p>Shots Current: Yes</p>{{else}}<p>Shots Current: No</p>{{/if}}
             </div>
-            <div> Contact Info for {{name}}
-                {{#if contact.email}}<a href='mailto:{{contact.email}}?subject=Adoption Info for {{name}}&body=Hello,%0D%0A%0D%0AI found a posting for {{name}} online and may want to adopt them.%0D%0A%0D%0AHope to hear back from you soon!'>Email: {{contact.email}}</a>{{else}}<p>No email on file</p>{{/if}}
-                {{#if contact.phone}}<a href='tel:{{contact.phone}}'>Phone: {{contact.phone}}</a>{{else}}<p>No phone number on file</p>{{/if}}
-                {{#if contact.address.state}}<p>Located in {{contact.address.city}}, {{contact.address.state}}</p>{{else}}<p>No location on file</p>{{/if}}
-            </div>
-            <button onclick="window.open('{{url}}','_blank')">Adopt me</button>
-        </div>
     {{/each}}
         
     {{#if loggedIn}}
