@@ -10,6 +10,29 @@ body, html {
   color: #333;
 }
 
+header {
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  padding: 0 1%;
+  background-color: lavender;
+  background-size: cover;
+  width: 100%;
+  z-index: 9999;
+  top: 0;
+  position: sticky;
+}
+
+header nav{
+  display: flex;
+  height: 6vw;
+}
+
+header nav img {
+  height: 6vw;
+}
+
 a {
   text-decoration: none;
   color: #143864;
@@ -22,6 +45,7 @@ a:hover {
 }
 
 button {
+  display: flex;
   background-color: #225ca3;
   border: 0;
   padding: 1%;
@@ -30,34 +54,11 @@ button {
   transition: background-color .1s;
   cursor: pointer;
   border-radius: 5px;
+  align-items: flex-end;
 }
 
 button:hover {
   background-color: #3486eb;
-}
-
-.post-list {
-  margin: 0;
-  padding: 1rem;
-  list-style-type: none;
-}
-
-#follower-list {
-  margin: 0;
-  padding: 1rem;
-  list-style-type: none;
-}
-
-#follower-heading {
-  text-align: center;
-}
-
-#post-heading {
-  text-align: center;
-}
-
-.edit-link{
-text-align: center;
 }
 
 textarea, input {
@@ -84,30 +85,42 @@ form label {
   display: block;
 }
 
+main {
+  display: flex;
+  flex: 1;
+  padding: 2% 4%;
+  justify-content: center;
+}
+
+footer {
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  padding: 1%;
+  font-size: 110%;
+}
+
+nav.navbar {
+  background-color: lavender;
+}
+
+.post-list {
+  margin: 0;
+  padding: 1rem;
+  list-style-type: none;
+}
+
+.edit-link{
+  text-align: center;
+}
+
 .wrapper {
   width: 100%;
   min-height: 100%;
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-}
-
-header {
-  border-bottom: 1px solid #ccc;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1%;
-}
-
-header h1 {
-  font-size: 1em;
-}
-
-main {
-  flex: 1;
-  padding: 2% 4%;
 }
 
 .btn-no-style {
@@ -121,6 +134,7 @@ main {
   font-weight: bold;
   transition: color .1s;
   margin-left: 16px;
+  padding-bottom: 2vw;
 }
 
 .btn-no-style:hover {
@@ -139,6 +153,8 @@ main {
 .post {
   margin-bottom: 2%;
   line-height: 150%;
+  background-color: lightblue;
+  border-radius: 9px;
 }
 
 
@@ -189,15 +205,6 @@ main {
   margin-bottom: 5%;
 }
 
-#profile-name {
-  font-size: 2rem;
-  text-align: center;
-}
-
-#profile-email {
-  text-align: center;
-}
-
 .followers-container {
   border: solid black 2px;
   padding: 5px;
@@ -209,11 +216,37 @@ main {
   margin-top: 10px;
 }
 
-footer {
-  border-top: 1px solid #ccc;
-  display: flex;
-  justify-content: center;
-  padding: 1%;
-  font-size: 110%;
+.login-form {
+  padding-right: 5vw;
+  padding-top: 3vw;
+  border-right: #ccc 2px solid;
+}
+
+.signup-form{
+  padding-left: 5vw;
+  padding-top: 3vw;
+}
+
+#profile-name {
+  font-size: 2rem;
+  text-align: center;
+}
+
+#profile-email {
+  text-align: center;
+}
+
+#follower-list {
+  margin: 0;
+  padding: 1rem;
+  list-style-type: none;
+}
+
+#follower-heading {
+  text-align: center;
+}
+
+#post-heading {
+  text-align: center;
 }
 
