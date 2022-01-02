@@ -19,7 +19,7 @@ header {
   background-color: lavender;
   background-size: cover;
   width: 100%;
-  z-index: 9999;
+  z-index: 999;
   top: 0;
   position: sticky;
 }
@@ -105,6 +105,15 @@ nav.navbar {
   background-color: lavender;
 }
 
+.modal-backdrop{
+  z-index: 10;
+  /* display: none; */
+}
+
+.modal-content{
+  z-index: 1100;
+}
+
 .post-list {
   margin: 0;
   padding: 1rem;
@@ -112,6 +121,12 @@ nav.navbar {
 }
 
 .edit-link{
+  text-align: center;
+}
+
+.login-page{
+  display: flex;
+  justify-content: center;
   text-align: center;
 }
 
@@ -143,13 +158,20 @@ nav.navbar {
   color: #3486eb;
 }
 
+.save-btn{
+  float: left;
+  margin-bottom: 3vw;
+}
+
 .delete-post-btn {
   background-color: #d41414;
+  float: right;
 }
 
 .delete-post-btn:hover {
   background-color: #ff643d;
 }
+
 
 .card{
   float: left;
@@ -241,11 +263,44 @@ nav.navbar {
   margin-left: .5vw;
 }
 
+.post-title{
+  background-color: #c7c7c7;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding-left: 1vw;
+  font-size: 2vw;
+  padding-top: .5vw;
+  padding-bottom: .5vw;
+}
+
+.post-text-content{
+  padding-left: 1vw;
+  padding-top: 1vw;
+  font-size: 1.5vw;
+}
+
+.post-image{
+  padding-left: 2vw;
+  
+}
+
+.post-creds{
+  padding-left: 1vw;
+  font-weight: 500;
+  padding-top: 2vw;
+  padding-bottom: 1vw;
+  font-size: 1vw;
+}
+
+.votes{
+  color: #d41414;
+}
+
 .post {
   margin-bottom: 2%;
   line-height: 150%;
-  background-color: lightblue;
-  border-radius: 20px;
+  border-radius: 5px;
+  border: #333 1px solid;
 }
 
 .post .title span {
@@ -260,25 +315,47 @@ nav.navbar {
 }
 
 .upvote-btn {
-  background-color: #197d0f;
+  background-color: #b30000;
   transition: background-color .1s;
+  float: right;
+
 }
 
 .upvote-btn:hover {
-  background-color: #1f9c13;
+  background-color: #ff5c5c;
 }
 
 .comment-form {
   margin-bottom: 5%;
 }
 
+.edit_title {
+  display: flex;
+  font-weight: 600;
+  font-size: 3vw;
+  justify-content: center;
+}
+
 .comment {
   padding: 1%;
   margin-bottom: 1%;
+  margin-top: 1vw;
+  border-radius: 5px;
 }
 
 .comment:nth-child(odd) {
   background-color: #fff5eb;
+}
+
+.cmt-div{
+  margin-top: 10vw;
+}
+
+.comment-body {
+  display: flex;
+  margin-bottom: 1vw;
+  margin-top: 2vw;
+  justify-content: start;
 }
 
 .comment .meta {
@@ -296,14 +373,18 @@ nav.navbar {
 }
 
 .followers-container {
-  border: solid black 2px;
+  border: solid black 1px;
   padding: 5px;
+  border-radius: 5px;
+  margin-top: 2vw;
 }
 
 .posts-container {
-  border: solid black 2px;
+  border: solid black 1px;
   padding: 5px;
   margin-top: 10px;
+  border-radius: 5px;
+  margin-top: 2vw;
 }
 
 
@@ -346,9 +427,18 @@ nav.navbar {
   justify-content: center;
 }
 
-.heart-doggo{
+.heart-doggo {
   /* display: flex; */
   width: 30vw;
+  
+}
+
+.editPostTitle, .editPostContent{
+  font-weight: 600;
+  margin-bottom: .5vw;
+}
+
+.edit-content {
   
 }
 
@@ -359,6 +449,7 @@ nav.navbar {
 #profile-name {
   font-size: 2rem;
   text-align: center;
+  font-weight: 600;
 }
 
 #profile-email {
@@ -373,10 +464,12 @@ nav.navbar {
 
 #follower-heading {
   text-align: center;
+  font-weight: 600;
 }
 
 #post-heading {
   text-align: center;
+  font-weight: 600;
 }
 
 #post_title, #post_text_content{
@@ -384,7 +477,8 @@ nav.navbar {
   margin: 10px;
 }
 
-#adoption-form{
+#adoption-form {
   text-align: left;
   
 }
+
