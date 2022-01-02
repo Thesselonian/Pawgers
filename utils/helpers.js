@@ -38,6 +38,7 @@ module.exports = {
     
     },
     getBreeds: () => {
+        console.log(dogBreeds)
         const breedArray = dogBreeds.map(breed => {
             return `<option value=${breed.name.replaceAll(' ', '-')}>${breed.name}</option>`;
         });
