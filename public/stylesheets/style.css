@@ -260,6 +260,7 @@ nav.navbar {
 
 .post_title, .post_text_content{
   font-size: 1.5vw;
+  font-weight: 600;
   margin-left: .5vw;
 }
 
@@ -427,19 +428,51 @@ nav.navbar {
   justify-content: center;
 }
 
+.adoption-form{
+  width: 40%;
+  float: right;
+  margin-top: 3vw;
+  padding-left: 3vw;
+  border-left: #c7c7c7 1px solid;
+}
+
 .heart-doggo {
-  /* display: flex; */
+  float: left;
+  margin-left: 10vw;
   width: 30vw;
-  
+  margin-top: 2vw;
 }
 
 .editPostTitle, .editPostContent{
   font-weight: 600;
+  font-size: 1.5vw;
   margin-bottom: .5vw;
+  text-align: left;
+  margin-left: 20.5vw;
 }
 
 .edit-content {
-  
+  text-align: center;
+
+}
+
+.your-post{
+  font-weight: 600;
+  font-size: 1.5vw;
+}
+
+.oops-page{
+  text-align: center;
+}
+
+#woof{
+  font-weight: 600;
+  font-size: 2vw;
+}
+
+#adptBrd,#adptZip,#adptRad{
+  font-size: 1.5vw;
+  font-weight: 600;
 }
 
 #profile-body{
@@ -447,7 +480,7 @@ nav.navbar {
 }
 
 #profile-name {
-  font-size: 2rem;
+  font-size: 2.5vw;
   text-align: center;
   font-weight: 600;
 }
@@ -473,6 +506,11 @@ nav.navbar {
 }
 
 #post_title, #post_text_content{
+  width: 50vw;
+  margin: 10px;
+}
+
+#post-title, #text-content {
   width: 50vw;
   margin: 10px;
 }

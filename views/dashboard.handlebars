@@ -1,13 +1,13 @@
 <section class="create-post">
     <div>
-        <h2 class="create-new-post">Create New Post</h2>
-        <form class="new-post-form">
+        <h2 class="border-bottom mb-4 create-new-post">Create New Post</h2>
+        <form class="border-bottom mb-4 new-post-form">
             <div>
                 <label class="post_title" for="post_title">Title</label>
                 <input type="text" id="post_title" name="post_title" />
             </div>
             <div>
-                <label class="post_text_content" for="post_text_content">Say Something About Your Dog</label>
+                <label class="post_text_content" for="post_text_content">Say Something About Your Doggo</label>
                 <input type="text" id="post_text_content" name="post_text_content" />
             </div>
             <button type="submit" class="btn">Create</button>
@@ -19,7 +19,7 @@
 
 {{#if posts.length}}
 <section>
-    <h2 class="d-flex justify-content-center border-bottom border-primary mb-4 mt-4">Your Posts</h2>
+    <h2 class="your-post d-flex justify-content-center border-bottom mb-4 mt-4">Your Posts</h2>
     <ul class="post-list">
         {{#each posts as |post|}}
         <li class = "border-bottom mb-4 rounded">

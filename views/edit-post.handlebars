@@ -1,10 +1,10 @@
 <article>
   <a href="/dashboard"> &larr; Back to dashboard</a>
-  <h2 class="edit_title">
+  <h2 class="border-bottom mb-4 edit_title">
     Edit Post
   </h2>
   <form class="edit-post-form">
-    <div class="edit-content">
+    <div class="border-bottom mb-4 edit-content">
       <label class="editPostTitle" for="post-title">Title of the post</label>
       <input id="post-title" name="post-title" type="text" value="{{post.title}}" class="mb-4"/>
       <label class="editPostContent"for="text-content">Text content of the post</label>
@@ -19,7 +19,7 @@
     <button type="button" class="delete-post-btn">Delete post</button>
   </form>
   <form class="comment-form">
-  <div class="cmt-div">
+  <div class="border-bottom pb-4 mb-4 border-top cmt-div">
     <textarea class="comment-body" name="comment-body"></textarea>
     <div>
       <button type="submit">add comment</button>

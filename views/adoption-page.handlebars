@@ -1,15 +1,15 @@
 <body class="adoption-body">
     <img class="heart-doggo" src="/images/doggo-heart.png"/>
-    <form action="adoption/results" method="POST" class="adoption-form" id="adoption-form">
-        <label for="breed">Choose a dog breed:</label>
+    <form action="adoption/results" method="POST" class="adoption-form " id="adoption-form">
+        <label id="adptBrd" for="breed">Choose a dog breed:</label>
         <select id="breed" name="breed" required>
             {{{getBreeds}}}
         </select><br><br>
 
-        <label for="zip-code">Enter your zip-code:</label>
+        <label id="adptZip"for="zip-code">Enter your zip-code:</label>
         <input type="text" id="zipCode" name="zipCode" required pattern="[0-9]{5}"><br><br>
 
-        <label for="distance">Search Radius (Miles):  </label>
+        <label id="adptRad" for="distance">Search Radius (Miles):  </label>
         <input type="number" id="distance" name="distance" required min="5" max="500"><br><br>
 
         <input type="submit" id="form-submit-btn" value="Doggo search">
