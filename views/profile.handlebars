@@ -12,20 +12,6 @@
     
 
     {{#if followers.length}}
-    <div class="followers-container">
-
-        <h3 id="follower-heading">These people follow {{username}}! </h3>    
-        <ul id="follower-list">
-            {{#each followers}}
-            <li class="follower-name-container">
-                <a href="/profile/{{this.follower_id}}" target="blank" class="follower-name">{{this.follower_name}}</a>
-            </li>
-            {{/each}}
-        </ul>
-
-    </div>
-    {{/if}}
-
     <div class="posts-container">
 
         <h3 id="post-heading">{{username}}'s Posts:</h3>
@@ -42,6 +28,20 @@
         </ul>
 
     </div>
+    {{/if}}
+    <div class="followers-container">
+
+        <h3 id="follower-heading">These people follow {{username}}! </h3>    
+        <ul id="follower-list">
+            {{#each followers}}
+            <li class="follower-name-container">
+                <a href="/profile/{{this.follower_id}}" target="blank" class="follower-name">{{this.follower_name}}</a>
+            </li>
+            {{/each}}
+        </ul>
+
+    </div>
+    
     
 </section>
 <script src="/javascript/follow.js"></script>

@@ -1,13 +1,13 @@
 <article>
   <a href="/dashboard"> &larr; Back to dashboard</a>
-  <h2>
+  <h2 class="border-bottom mb-4 edit_title">
     Edit Post
   </h2>
   <form class="edit-post-form">
-    <div>
-      <label for="post-title">Edit the title of the post</label>
+    <div class="border-bottom mb-4 edit-content">
+      <label class="editPostTitle" for="post-title">Title of the post</label>
       <input id="post-title" name="post-title" type="text" value="{{post.title}}" class="mb-4"/>
-      <label for="text-content">Edit the text content of the post</label>
+      <label class="editPostContent"for="text-content">Text content of the post</label>
       <textarea id='text-content' name="post-text-content">{{post.post_text_content}}</textarea>
     </div>
     <div>
@@ -15,18 +15,19 @@
       |
       <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
     </div>
-    <button type="submit">Save post</button>
+    <button class="save-btn" type="submit">Save post</button>
     <button type="button" class="delete-post-btn">Delete post</button>
   </form>
   <form class="comment-form">
-  <div>
-    <textarea name="comment-body"></textarea>
+  <div class="border-bottom pb-4 mb-4 border-top cmt-div">
+    <textarea class="comment-body" name="comment-body"></textarea>
+    <div>
+      <button type="submit">add comment</button>
+    </div>
     {{> comments post.comments}}
   </div>
 
-  <div>
-    <button type="submit">add comment</button>
-  </div>
+  
 </form>
 </article>
 
