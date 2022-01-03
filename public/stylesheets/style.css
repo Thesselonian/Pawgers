@@ -10,6 +10,29 @@ body, html {
   color: #333;
 }
 
+header {
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  padding: 0 1%;
+  background-color: lavender;
+  background-size: cover;
+  width: 100%;
+  z-index: 999;
+  top: 0;
+  position: sticky;
+}
+
+header nav{
+  display: flex;
+  height: 6vw;
+}
+
+header nav img {
+  height: 6vw;
+}
+
 a {
   text-decoration: none;
   color: #143864;
@@ -22,6 +45,7 @@ a:hover {
 }
 
 button {
+  display: flex;
   background-color: #225ca3;
   border: 0;
   padding: 1%;
@@ -30,34 +54,11 @@ button {
   transition: background-color .1s;
   cursor: pointer;
   border-radius: 5px;
+  align-items: flex-end;
 }
 
 button:hover {
   background-color: #3486eb;
-}
-
-.post-list {
-  margin: 0;
-  padding: 1rem;
-  list-style-type: none;
-}
-
-#follower-list {
-  margin: 0;
-  padding: 1rem;
-  list-style-type: none;
-}
-
-#follower-heading {
-  text-align: center;
-}
-
-#post-heading {
-  text-align: center;
-}
-
-.edit-link{
-text-align: center;
 }
 
 textarea, input {
@@ -84,30 +85,58 @@ form label {
   display: block;
 }
 
+main {
+  /* display: flex; */
+  /* flex: 1; */
+  padding: 2% 4%;
+  /* justify-content: center; */
+  
+}
+
+footer {
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  padding: 1%;
+  font-size: 110%;
+}
+
+nav.navbar {
+  background-color: lavender;
+}
+
+.modal-backdrop{
+  z-index: 10;
+  /* display: none; */
+}
+
+.modal-content{
+  z-index: 1100;
+}
+
+.post-list {
+  margin: 0;
+  padding: 1rem;
+  list-style-type: none;
+}
+
+.edit-link{
+  text-align: center;
+}
+
+.login-page{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
 .wrapper {
   width: 100%;
   min-height: 100%;
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-}
-
-header {
-  border-bottom: 1px solid #ccc;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1%;
-}
-
-header h1 {
-  font-size: 1em;
-}
-
-main {
-  flex: 1;
-  padding: 2% 4%;
 }
 
 .btn-no-style {
@@ -121,6 +150,7 @@ main {
   font-weight: bold;
   transition: color .1s;
   margin-left: 16px;
+  padding-bottom: 1vw;
 }
 
 .btn-no-style:hover {
@@ -128,19 +158,151 @@ main {
   color: #3486eb;
 }
 
+.save-btn{
+  float: left;
+  margin-bottom: 3vw;
+}
+
 .delete-post-btn {
   background-color: #d41414;
+  float: right;
 }
 
 .delete-post-btn:hover {
   background-color: #ff643d;
 }
 
+
+.card{
+  float: left;
+  justify-content: center;
+  align-items: center;
+  margin: 3vw;
+  width: 20vw;
+  cursor: pointer;
+  text-align: center;
+}
+
+.doggo-name{
+  font-weight: bold;
+  font-size: 2vw;
+}
+
+.doggo-info{
+  font-weight: bold;
+  font-size: 1vw;
+}
+
+.health-info{
+  font-weight: bold;
+  color: #d41414;
+}
+
+.doggo-healthinfo{
+  font-size: 1vw;
+}
+
+.doggo-img{
+  width:  15vw;
+  height: 20vw;
+  object-fit: cover;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 10px;
+  display: block;
+}
+
+.image__overlay{
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #ffff;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.image__overlay:hover{
+  opacity: 1;
+}
+
+.image__overlay > * {
+  transform: translateY(20px);
+  transition: transform 0.25s;
+}
+
+.image__overlay:hover > * {
+  transform: translateY(0);
+}
+
+.image__title{
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.create-post{
+  display: flex;
+  justify-content: center;
+}
+
+.create-new-post{
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2.5vw;
+}
+
+.post_title, .post_text_content{
+  font-size: 1.5vw;
+  font-weight: 600;
+  margin-left: .5vw;
+}
+
+.post-title{
+  background-color: #c7c7c7;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding-left: 1vw;
+  font-size: 2vw;
+  padding-top: .5vw;
+  padding-bottom: .5vw;
+}
+
+.post-text-content{
+  padding-left: 1vw;
+  padding-top: 1vw;
+  font-size: 1.5vw;
+}
+
+.post-image{
+  padding-left: 2vw;
+  
+}
+
+.post-creds{
+  padding-left: 1vw;
+  font-weight: 500;
+  padding-top: 2vw;
+  padding-bottom: 1vw;
+  font-size: 1vw;
+}
+
+.votes{
+  color: #d41414;
+}
+
 .post {
   margin-bottom: 2%;
   line-height: 150%;
+  border-radius: 5px;
+  border: #333 1px solid;
 }
-
 
 .post .title span {
   font-style: italic;
@@ -154,25 +316,47 @@ main {
 }
 
 .upvote-btn {
-  background-color: #197d0f;
+  background-color: #b30000;
   transition: background-color .1s;
+  float: right;
+
 }
 
 .upvote-btn:hover {
-  background-color: #1f9c13;
+  background-color: #ff5c5c;
 }
 
 .comment-form {
   margin-bottom: 5%;
 }
 
+.edit_title {
+  display: flex;
+  font-weight: 600;
+  font-size: 3vw;
+  justify-content: center;
+}
+
 .comment {
   padding: 1%;
   margin-bottom: 1%;
+  margin-top: 1vw;
+  border-radius: 5px;
 }
 
 .comment:nth-child(odd) {
   background-color: #fff5eb;
+}
+
+.cmt-div{
+  margin-top: 10vw;
+}
+
+.comment-body {
+  display: flex;
+  margin-bottom: 1vw;
+  margin-top: 2vw;
+  justify-content: start;
 }
 
 .comment .meta {
@@ -189,31 +373,150 @@ main {
   margin-bottom: 5%;
 }
 
-#profile-name {
-  font-size: 2rem;
+.followers-container {
+  border: solid black 1px;
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 2vw;
+}
+
+.posts-container {
+  border: solid black 1px;
+  padding: 5px;
+  margin-top: 10px;
+  border-radius: 5px;
+  margin-top: 2vw;
+}
+
+
+.login-form {
+  padding-right: 5vw;
+  padding-top: 3vw;
+  border-right: #ccc 2px solid;
   text-align: center;
+  float: left;
+}
+
+.login-button {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.signup-form{
+  padding-left: 5vw;
+  padding-top: 3vw;
+  text-align: center;
+  float: left;
+}
+
+.signup-button{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.btn{
+  margin: 1vw;
+  font-size: 1vw;
+}
+
+.adoption-body{
+  display: flex;
+  justify-content: center;
+}
+
+.adoption-form{
+  width: 40%;
+  float: right;
+  margin-top: 3vw;
+  padding-left: 3vw;
+  border-left: #c7c7c7 1px solid;
+}
+
+.heart-doggo {
+  float: left;
+  margin-left: 10vw;
+  width: 30vw;
+  margin-top: 2vw;
+}
+
+.editPostTitle, .editPostContent{
+  font-weight: 600;
+  font-size: 1.5vw;
+  margin-bottom: .5vw;
+  text-align: left;
+  margin-left: 20.5vw;
+}
+
+.edit-content {
+  text-align: center;
+
+}
+
+.your-post{
+  font-weight: 600;
+  font-size: 1.5vw;
+}
+
+.oops-page{
+  text-align: center;
+}
+
+#woof{
+  font-weight: 600;
+  font-size: 2vw;
+}
+
+#adptBrd,#adptZip,#adptRad{
+  font-size: 1.5vw;
+  font-weight: 600;
+}
+
+#profile-body{
+  width: 100%;
+}
+
+#profile-name {
+  font-size: 2.5vw;
+  text-align: center;
+  font-weight: 600;
 }
 
 #profile-email {
   text-align: center;
 }
 
-.followers-container {
-  border: solid black 2px;
-  padding: 5px;
+#follower-list {
+  margin: 0;
+  padding: 1rem;
+  list-style-type: none;
 }
 
-.posts-container {
-  border: solid black 2px;
-  padding: 5px;
-  margin-top: 10px;
+#follower-heading {
+  text-align: center;
+  font-weight: 600;
 }
 
-footer {
-  border-top: 1px solid #ccc;
-  display: flex;
-  justify-content: center;
-  padding: 1%;
-  font-size: 110%;
+#post-heading {
+  text-align: center;
+  font-weight: 600;
+}
+
+#post_title, #post_text_content{
+  width: 50vw;
+  margin: 10px;
+}
+
+#post-title, #text-content {
+  width: 50vw;
+  margin: 10px;
+}
+
+#adoption-form {
+  text-align: left;
+  
 }
 
