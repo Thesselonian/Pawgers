@@ -5,7 +5,7 @@ if(localStorage.getItem('theme')=="darkmode"){
     document.body.classList.toggle("darkmode");
     icon.src = "/images/sun.png";
 }
-
+// toggles darkmode
 icon.onclick = function () {
     localStorage.setItem("theme","darkmode");
     var drk = document.body.classList
