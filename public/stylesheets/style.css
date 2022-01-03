@@ -99,6 +99,7 @@ footer {
   justify-content: center;
   padding: 1%;
   font-size: 110%;
+  text-align: center;
 }
 
 nav.navbar {
@@ -115,7 +116,7 @@ nav.navbar {
 }
 
 .darkmode {
-  --primary-color: black;
+  --primary-color: rgb(44, 44, 44);
   --secondary-color: white;
   --tertiary-color:rgb(102, 102, 102);
   --quaternary-color: rgb(255, 255, 255);
@@ -313,11 +314,12 @@ nav.navbar {
   padding-top: 1vw;
   font-size: 1.5vw;
   color: var(--secondary-color);
+  justify-content: center;
 }
 
 .post-image{
   padding-left: 2vw;
-  
+  justify-content: center;
 }
 
 .post-creds{
@@ -559,5 +561,10 @@ nav.navbar {
 #adoption-form {
   text-align: left;
   
+}
+
+.post-list-header{
+  font-size: xx-large;
+  text-align: center;
 }
 
