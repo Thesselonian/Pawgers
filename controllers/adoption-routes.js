@@ -16,7 +16,6 @@ router.get('/', (req, res) => {
       }).then(function (data) {
          console.log(data);
          // fs rewrites .env file every time adoption page is hit; all env variables remain the same except API_TOKEN, which is rewritten every time this function fires
-         // fs.writeFileSync('.env', `DB_NAME=${process.env.DB_NAME}\nDB_USER=${process.env.DB_USER}\nDB_PW=${process.env.DB_PW}\nAPI_KEY=${process.env.API_KEY}\nAPI_SECRET=${process.env.API_SECRET}\nAPI_TOKEN=${data.access_token}`);
          adoptionAPIToken = data.access_token
          res.render('adoption-page', {
             loggedIn: req.session.loggedIn
