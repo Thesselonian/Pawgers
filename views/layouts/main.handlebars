@@ -24,14 +24,14 @@
         <button id="explore" class="btn-no-style">Explore</button>
         <button id="dashboard-return" class="btn-no-style">Dashboard</button>
         <button id="profile-return" class="btn-no-style">My Profile</button>
-
+        
         
 
         {{else}}
-        <button class="btn-no-style"><a href="/login">Login</a></button>
+        <button class="btn-no-style"><a class="adpt-btn" href="/login">Login</a></button>
         {{/if}}
-        <button class="btn-no-style"></buttonclass><a href="/adoption">Adoption</a></button>
-        
+        <button class="btn-no-style"></buttonclass><a class="adpt-btn" href="/adoption">Adoption</a></button>
+        <img src="/images/moon.png" id="icon">
       </nav>
     </header>
     <main>
@@ -41,7 +41,7 @@
       Thanks for visiting! 🐾
     </footer>
   </div>
-  
+  <script src="/javascript/theme.js"></script>
   {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
   {{/if}}
