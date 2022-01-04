@@ -1,8 +1,8 @@
 <body>
     {{#each animals}}
-            <div class="card column is-one-quarter" onclick="window.open('{{url}}','_blank')">
+            <div class="card column is-one-quarter " onclick="window.open('{{url}}','_blank')">
                 <p class="doggo-name">{{name}}</p>
-                {{#if photos.0.full}}<img class="doggo-img" src={{photos.0.full}}>{{else}}<img src="https://helpemup.com/wp-content/uploads/2017/05/dreamstime_l_78844450-904x602.jpg">{{/if}} {{!-- KEVIN PLEASE PUT A PLACEHOLDER IMAGE IN THE SECOND IMG SRC ON THIS LINE  --}}
+                {{#if photos.0.full}}<img class="doggo-img" src={{photos.0.full}}>{{else}}<img class="doggo-img" src="https://helpemup.com/wp-content/uploads/2017/05/dreamstime_l_78844450-904x602.jpg">{{/if}} {{!-- KEVIN PLEASE PUT A PLACEHOLDER IMAGE IN THE SECOND IMG SRC ON THIS LINE  --}}
                 <div class="doggo-info">About {{name}}
                     {{#if age}}<p>Age: {{age}}</p>{{else}}<p>Age: Unknown</p>{{/if}}
                     {{#if gender}}<p>Gender: {{gender}}</p>{{else}}<p>Gender: Unknown</p>{{/if}}

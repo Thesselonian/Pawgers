@@ -16,7 +16,7 @@ header {
   /* justify-content: space-between; */
   /* align-items: center; */
   padding: 0 1%;
-  background-color: lavender;
+  background-color: var(--tertiary-color);
   background-size: cover;
   width: 100%;
   z-index: 999;
@@ -35,7 +35,7 @@ header nav img {
 
 a {
   text-decoration: none;
-  color: #143864;
+  color: var(--quaternary-color);
   font-weight: bold;
   transition: color .1s;
 }
@@ -99,15 +99,48 @@ footer {
   justify-content: center;
   padding: 1%;
   font-size: 110%;
+  text-align: center;
 }
 
 nav.navbar {
-  background-color: lavender;
+  background-color: var(--tertiary-color);
+}
+
+
+:root{
+  --primary-color: white;
+  --secondary-color: black;
+  --tertiary-color: lavender;
+  --quaternary-color: rgb(28, 128, 158);
+  --penta-color:black;
+}
+
+.darkmode {
+  --primary-color: rgb(44, 44, 44);
+  --secondary-color: white;
+  --tertiary-color:rgb(102, 102, 102);
+  --quaternary-color: rgb(255, 255, 255);
+  --penta-color:rgb(126, 126, 126);
+}
+
+#icon{
+  height: 1vw;
+  width: 1vw;
+  cursor: pointer;
+
+}
+
+.modal{
+  
+  color: var(--primary-color);
+}
+
+.adpt-btn{
+  color: var(--quaternary-color);
 }
 
 .modal-backdrop{
   z-index: 10;
-  /* display: none; */
 }
 
 .modal-content{
@@ -137,6 +170,8 @@ nav.navbar {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 .btn-no-style {
@@ -145,7 +180,7 @@ nav.navbar {
   padding: 0;
   cursor: pointer;
   text-decoration: none;
-  color: #225ca3;
+  color: var(--quaternary-color);
   font-size: 100%;
   font-weight: bold;
   transition: color .1s;
@@ -278,11 +313,13 @@ nav.navbar {
   padding-left: 1vw;
   padding-top: 1vw;
   font-size: 1.5vw;
+  color: var(--secondary-color);
+  justify-content: center;
 }
 
 .post-image{
   padding-left: 2vw;
-  
+  justify-content: center;
 }
 
 .post-creds{
@@ -374,7 +411,7 @@ nav.navbar {
 }
 
 .followers-container {
-  border: solid black 1px;
+  border: solid #c7c7c7 1px;
   padding: 5px;
   border-radius: 5px;
   margin-top: 2vw;
@@ -421,12 +458,14 @@ nav.navbar {
 .btn{
   margin: 1vw;
   font-size: 1vw;
+  color: var(--quaternary-color);
+  font-weight: 600;
 }
-
+/* 
 .adoption-body{
   display: flex;
   justify-content: center;
-}
+} */
 
 .adoption-form{
   width: 40%;
@@ -434,6 +473,10 @@ nav.navbar {
   margin-top: 3vw;
   padding-left: 3vw;
   border-left: #c7c7c7 1px solid;
+}
+
+.text{
+  color: var(--penta-color);
 }
 
 .heart-doggo {
@@ -518,5 +561,10 @@ nav.navbar {
 #adoption-form {
   text-align: left;
   
+}
+
+.post-list-header{
+  font-size: xx-large;
+  text-align: center;
 }
 
