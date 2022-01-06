@@ -1,6 +1,7 @@
 async function newFormHandler(public_id) {
     const title = document.querySelector('input[name="post_title"]').value;
     const post_text_content = document.querySelector('input[name="post_text_content"]').value;
+
     const post = {
         title,
         post_text_content
